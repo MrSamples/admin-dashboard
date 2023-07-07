@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Jost&display=swap');
 
+:root {
+    --card-color: #f8f8f0;
+    --bg-color: #e2e8f0;
+    --text-color: #000000;
+    --desc-color: #4c4e50;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --card-color: #414952;
+        --bg-color: #21272e;
+        --text-color: #f8f8f0;
+        --desc-color: #e2e8f0;
+    }
+}
+
 * {
     font-family: Jost, Verdana, Arial, sans-serif;
     /* border: 1px solid red; */
@@ -94,6 +110,8 @@ a {
 .header {
     box-shadow: 0 4px 8px #00000022;
     z-index: 1;
+    background-color: var(--card-color);
+    color: var(--text-color);
 }
 
 .header img {
@@ -148,7 +166,8 @@ img.profile.hero {
 
 input {
     appearance: none;
-    background-color: #e2e8f0;
+    color: var(--text-color);
+    background-color: var(--bg-color);
     border: none;
     border-radius: 24px;
     width: 40vw;
@@ -180,18 +199,23 @@ button:active {
 }
 
 .content {
-    background-color: #e2e8f0;
+    color: var(--text-color);
+    background-color: var(--bg-color);
     display: grid;
     grid-template: 1fr 1fr / 2fr 1fr;
 }
 
 .content>* {
-    margin: 48px 24px;
+    margin: 36px 24px;
 }
 
 .trending, .announcements {
     margin-right: 0;
     padding-right: 24px;
+}
+
+.announcements {
+    margin-bottom: 24px;
 }
 
 .projects {
@@ -222,17 +246,18 @@ p {
 
 .card {
     position: relative;
-    background: #ffffff;
+    background: var(--card-color);
     border-left: 12px solid;
     border-left-color: #309730;
     border-radius: 8px;
     box-shadow: 4px 4px 8px #00000022;
 }
 
-.a-card {
-    background: #ffffff;
+.a-card, .t-card {
+    background: var(--card-color);
     border-radius: 8px;
     box-shadow: 4px 4px 8px #00000022;
+    padding: 16px;
 }
 
 .head {
@@ -272,4 +297,46 @@ div.projects>div>div.card.blue {
 
 div.content>div.projects>div>div.card.gold {
     border-left-color: #ffd52e;
+}
+
+.a-card li {
+    display: block;
+    border-bottom: 1px solid var(--bg-color);
+    padding-bottom: 16px;
+    margin: 16px 16px 0 16px;
+}
+
+.a-card li:last-child {
+    border-bottom: none;
+    margin: 16px 16px 16px 16px;
+    padding-bottom: 0;
+}
+
+.t-card li {
+    padding-left: 16px;
+}
+
+.head-desc {
+    font-size: .9rem;
+}
+
+.user {
+    margin-left: 16px;
+}
+
+.uname {
+    font-size: 1.1rem;
+}
+
+.uname, .proj {
+    line-height: 100%;
+}
+
+.proj, .description, .head-desc {
+    color: var(--desc-color);
+}
+
+.prof {
+    height: 3.5rem;
+    clip-path: circle(40%);
 }
